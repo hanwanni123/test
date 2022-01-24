@@ -1,8 +1,66 @@
+<!DOCTYPE html>
 <html>
-  <head>
-    <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
-  </head>
-  <body>
-	<h1>hello 你好</h1>
-  </body>
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Expires" content="0" />
+	<meta name="viewport" content="user-scalable=no,width=750" >
+	<meta name="screen-orientation" content="portrait">
+		<title>111</title>
+	</head>
+	<body>
+		<div id="content-main" >
+	    <img src="./img/alert.jpg" alt=""/>
+		<img id="testImg" src="./img/alert.jpg" alt="" style="position: absolute;top:100px;left: 100px;"/>
+		<input type="text" value="jfjdvdfbjvfjdv" id="myTest"/>
+		<textarea value="kjsdhjsdhfdshfsdjkfdsfhdshfksdhfdfdskfdsjhfdsf" style="width: 100px;height: 500px; line-height: 50px;font-size: 24px;"></textarea>
+		
+		<img id="img" style="width: 100px;height: 100px;" />
+	    </div>
+		<input type="file" accept="image/*" name="file" id="file" onchange="fileSelected()"/>
+		 
+		<button onclick="downloadImg()">合成</button>
+		<script src="./js/html2canvas.js"></script>
+		<script>
+		 function fileSelected() {
+		            var file = document.getElementById('file').files[0];
+		            if (file) {
+						console.log(file)
+						 var fileReader = new FileReader();
+						            fileReader.onloadend = function () {
+						                if (fileReader.readyState == fileReader.DONE) {
+						                    document.getElementById('img').setAttribute('src', fileReader.result);
+						                }
+						            };
+						            fileReader.readAsDataURL(file);
+		 //                var fileSize = 0;
+		 //                if (file.size > 1024 * 1024)
+		 //                    fileSize = (Math.round(file.size * 100 / (1024 * 1024)) / 100).toString() + 'MB';
+		 //                else
+		 //                    fileSize = (Math.round(file.size * 100 / 1024) / 100).toString() + 'KB';
+		 
+		 //                document.getElementById('fileName').innerHTML = 'Name: ' + file.name;
+		 //                document.getElementById('fileSize').innerHTML = 'Size: ' + fileSize;
+		 //                document.getElementById('fileType').innerHTML = 'Type: ' + file.type;
+		            }
+		        }
+			function downloadImg(){
+				// html2canvas(document.getElementById('content-main'), {
+				//     onrendered: function(canvas) {
+				//         document.body.appendChild(canvas);
+				//     }
+				// });     
+				document.getElementById('myTest').style="display:none;"
+				 			    new html2canvas(document.getElementById('content-main')).then(canvas => {
+							      // canvas为转换后的Canvas对象
+								  //document.getElementById('myTest').style="display:none;"
+							      let oImg = new Image();
+							      oImg.src = canvas.toDataURL();  // 导出图片
+								  oImg.width=750;
+							      document.body.appendChild(oImg);  // 将生成的图片添加到body
+							    });
+			}
+		</script>
+	</body>
 </html>

@@ -12,11 +12,11 @@
 	<body>
 		<div id="content-main" >
 	    <img src="./img/alert.jpg" alt=""/>
-		<img id="testImg" src="./img/alert.jpg" alt="" style="position: absolute;top:100px;left: 100px;"/>
-		<input type="text" value="jfjdvdfbjvfjdv" id="myTest"/>
-		<textarea value="kjsdhjsdhfdshfsdjkfdsfhdshfksdhfdfdskfdsjhfdsf" style="width: 100px;height: 500px; line-height: 50px;font-size: 24px;"></textarea>
 		
-		<img id="img" style="width: 100px;height: 100px;" />
+		<input type="text" id="myTest" style="width: 100%;height: 50px; line-height: 50px;font-size: 24px;"/>
+		<textarea style="width: 100px;height: 500px; line-height: 50px;font-size: 24px;"></textarea>
+		<div style="width: 100px;height: 500px; line-height: 50px;font-size: 24px;">尖端放电不放假等放假不打开积分活动分</div>
+		<img id="img" style="width: 200px;height: 200px;" />
 	    </div>
 		<input type="file" accept="image/*" name="file" id="file" onchange="fileSelected()"/>
 		 
@@ -51,7 +51,7 @@
 				//         document.body.appendChild(canvas);
 				//     }
 				// });     
-				document.getElementById('myTest').style="display:none;"
+				//document.getElementById('myTest').style="display:none;"
 				 			    new html2canvas(document.getElementById('content-main')).then(canvas => {
 							      // canvas为转换后的Canvas对象
 								  //document.getElementById('myTest').style="display:none;"
